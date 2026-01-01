@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "src": "api",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/frontend/build/$1" }
+  ]
+}
